@@ -2,7 +2,7 @@
 // CLASS: Main (Main.java)
 //
 // DESCRIPTION
-// A description of the contents of this file.
+// The main driver of the program
 //
 // COURSE AND PROJECT INFO
 // CSE205 Object Oriented Programming and Data Structures, Spring 2021
@@ -39,8 +39,7 @@ public class Main {
      * This is where execution starts. Instantiate a Main object and then call run().
      */
     public static void main(String[] pArgs){
-        Main main = new Main();
-        main.run();
+        new Main().run();
     }
 
     /**

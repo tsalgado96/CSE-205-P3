@@ -2,7 +2,7 @@
 // CLASS: Sorter (Sorter.java)
 //
 // DESCRIPTION
-// A description of the contents of this file.
+// Implements a quick sort algorithm to sort the elements in an ArrayList<Student> in ascending order by last name
 //
 // COURSE AND PROJECT INFO
 // CSE205 Object Oriented Programming and Data Structures, Spring 2021
@@ -18,6 +18,10 @@ package proj3;
 import java.util.ArrayList;
 
 public class Sorter {
+    /**
+     * Partitions a sublist where the all the elements in the left list are
+     * less than all the elements in the right list
+     */
     private static int partition(ArrayList<Student> pList, int pFromIdx, int pToIdx){
         String pivotLastName = pList.get(pFromIdx).getLastName();
         int leftIndex = pFromIdx - 1;
@@ -39,6 +43,9 @@ public class Sorter {
         return rightIndex;
     } // End partition()
 
+    /**
+     * Partition the input list and recursively quick sort the left and right sublist
+     */
     private static void quickSort(ArrayList<Student> pList, int pFromIdx, int pToIdx){
         if (pFromIdx >= pToIdx){
             return;
@@ -48,10 +55,16 @@ public class Sorter {
         quickSort(pList, partitionIndex + 1, pToIdx);
     } // End quickSort()
 
+    /**
+     * Initializes the quick sort algorithm
+     */
     public static void sort(ArrayList<Student> pList){
         quickSort(pList, 0, pList.size() - 1);
     } // End sort()
 
+    /**
+     * Implements a simple swap between two elements in the ArrayList<Student>
+     */
     private static void swap(ArrayList<Student> pList, int pIdx1, int pIdx2){
         Student temp = pList.get(pIdx1);
         pList.set(pIdx1, pList.get(pIdx2));

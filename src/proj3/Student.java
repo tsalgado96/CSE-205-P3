@@ -2,7 +2,7 @@
 // CLASS: Student (Student.java)
 //
 // DESCRIPTION
-// A description of the contents of this file.
+// Stores the gradebook information for a Student
 //
 // COURSE AND PROJECT INFO
 // CSE205 Object Oriented Programming and Data Structures, Spring 2021
@@ -299,12 +299,12 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public String toString(){
-        String rt = getLastName() + getFirstName();
+        String rt = getLastName() + " " + getFirstName();
         for (Integer score : mExamList){
-            rt += score;
+            rt = rt + " " + score;
         }
         for (Integer score : mHomeworkList){
-            rt += score;
+            rt = rt + " " + score;
         }
         return rt.trim();
     }

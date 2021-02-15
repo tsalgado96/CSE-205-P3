@@ -2,7 +2,7 @@
 // CLASS: GradebookWriter (GradebookWrite.java)
 //
 // DESCRIPTION
-// A description of the contents of this file.
+// Writes the gradebook information to the file before the program exits
 //
 // COURSE AND PROJECT INFO
 // CSE205 Object Oriented Programming and Data Structures, Spring 2021

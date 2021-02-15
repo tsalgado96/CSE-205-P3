@@ -2,7 +2,7 @@
 // CLASS: Roster (Roster.java)
 //
 // DESCRIPTION
-// A description of the contents of this file.
+// Maintains an ArrayList<Student> which stores the information for each student
 //
 // COURSE AND PROJECT INFO
 // CSE205 Object Oriented Programming and Data Structures, Spring 2021

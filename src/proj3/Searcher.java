@@ -2,7 +2,7 @@
 // CLASS: Searcher (Searcher.java)
 //
 // DESCRIPTION
-// A description of the contents of this file.
+// Implements a binary search to search for a Student with a specified last name
 //
 // COURSE AND PROJECT INFO
 // CSE205 Object Oriented Programming and Data Structures, Spring 2021
@@ -18,6 +18,9 @@ package proj3;
 import java.util.ArrayList;
 
 public class Searcher {
+    /**
+     * Uses binary search to search for a Student object in pList with the key pKey
+     */
     public static int search(ArrayList<Student> pList, String pKey){
         int low = 0, high = pList.size() - 1;
         while (low <= high){

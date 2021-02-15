@@ -2,7 +2,7 @@
 // CLASS: View (View.java)
 //
 // DESCRIPTION
-// A description of the contents of this file.
+// Implements the GUI
 //
 // COURSE AND PROJECT INFO
 // CSE205 Object Oriented Programming and Data Structures, Spring 2021
@@ -55,9 +55,9 @@ public class View extends JFrame implements ActionListener {
      * Declare GUI related instance variables for the buttons and text fields.
      */
     JButton mClearButton;
-    JTextField[] mExamText;
+    JTextField[] mExamText = new JTextField[Main.getNumExams()];
     JButton mExitButton;
-    JTextField[] mHomeworkText;
+    JTextField[] mHomeworkText = new JTextField[Main.getNumHomeworks()];
     JButton mSaveButton;
     JButton mSearchButton;
     JTextField mStudentName;
@@ -237,6 +237,7 @@ public class View extends JFrame implements ActionListener {
                 Student.setCurrStudent(getMain().search(lastName));
                 if (Student.getCurrStudent() == null){
                     messageBox("Student not found. Try again.");
+                    clear();
                 }
                 else {
                     displayStudent(Student.getCurrStudent());
@@ -245,9 +246,14 @@ public class View extends JFrame implements ActionListener {
         }
 
         // Else if the source of the event was the Save button Then
-        else if (Student.getCurrStudent() != null){
-            saveStudent(Student.getCurrStudent());
+        else if (pEvent.getSource().equals(mSaveButton)){
+            if (Student.getCurrStudent() != null){
+                saveStudent(Student.getCurrStudent());
+            }
         }
+//        else if (Student.getCurrStudent() != null){
+//            saveStudent(Student.getCurrStudent());
+//        }
 
         // Else if the source of the event was the Clear button Then
         else if (pEvent.getSource().equals(mClearButton)){
@@ -324,13 +330,14 @@ public class View extends JFrame implements ActionListener {
      * DO NOT HARCODE THE NUMBER OF HOMEWORKS AND EXAMS
      */
     private void displayStudent(Student pStudent){
-        for (int i = 0; i < Main.getNumHomeworks() - 1; i++){
+        mStudentName.setText(pStudent.getLastName() + ", " + pStudent.getFirstName());
+        for (int i = 0; i < Main.getNumHomeworks(); i++){
             int hw = pStudent.getHomework(i);
             String hwstr = Integer.toString(hw);
             mHomeworkText[i].setText(hwstr);
         }
 
-        for (int i = 0; i < Main.getNumExams() - 1; i++){
+        for (int i = 0; i < Main.getNumExams(); i++){
             int ex = pStudent.getExam(i);
             String exstr = Integer.toString(ex);
             mExamText[i].setText(exstr);
